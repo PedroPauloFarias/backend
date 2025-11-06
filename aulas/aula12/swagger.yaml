@@ -1,0 +1,73 @@
+opneapi: 3.1.1
+info: 
+  title: Minha API
+  description: Projeto de uma API Rest usando ExpressJs e Mongoose.
+  version: 0.1.0
+servers:
+  - url: http://localhost:3000/api/v1
+    description: Ambiente de Desenvolvimento
+tags:
+  - tarefas
+paths:
+  /tarefas:
+    get:
+      reponses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+        500:
+    post:
+      requestBody:
+        content:  
+          application/json:
+            schema:
+              type: object 
+      responses:
+        201:
+          content:
+            appication/json:
+              schema:
+                type: object
+        422:          
+          content:
+            appication/json:
+              schema:
+                type: object
+        500:
+           content: 
+  /tarefas/id:
+    get:
+      parameters:
+        - in: path
+          name: tarefaId
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object 
+        400:
+          content:
+            application/json:
+              schema:
+                type: object 
+        404:      
+           content:
+            application/json:
+              schema:
+                type: object 
+        500:       
+         content:
+            application/json:
+              schema:
+                type: object 
+
+    put:
+    delete:
+
+components:
